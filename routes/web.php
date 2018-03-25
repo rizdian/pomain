@@ -20,3 +20,12 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resource('/task', 'TaskController');
+
+Route::get('/welcomeMail', function () {
+    $user = [
+        'name'  => 'Testing',
+        'email' => 'Testing@mail.com'];
+    return new App\Mail\WelcomeMail($user);
+});
+
+
